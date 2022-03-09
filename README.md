@@ -9,15 +9,13 @@ This image is simply built from [Alpine image](https://hub.docker.com/_/alpine) 
 ### Pull image from the command line
 
 ```bash
-docker pull ghcr.io/ttimasdf/htop:nightly
+docker pull ghcr.io/ttimasdf/htop
 ```
-
-There's no `latest` tag in this repo, so you have to add the tag manually.
 
 ### Use as base image in Dockerfile  
 
 ```dockerfile
-FROM ghcr.io/ttimasdf/htop:nightly
+FROM ghcr.io/ttimasdf/htop
 ```
 
 ### Usage  
@@ -25,11 +23,11 @@ FROM ghcr.io/ttimasdf/htop:nightly
 Run htop inside a container:
 
 ```bash
-docker run -it --rm --pid=host ghcr.io/ttimasdf/htop:nightly
+docker run -it --rm --pid=host ghcr.io/ttimasdf/htop
 ```
 
 Join another container’s pid namespace:
 
 ```bash
-docker run -it --rm --pid=container:my-container ghcr.io/ttimasdf/htop:nightly
+docker run -it --rm --pid=container:my-container ghcr.io/ttimasdf/htop
 ```
