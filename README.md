@@ -1,33 +1,35 @@
-[![Build Status](https://travis-ci.org/terencewestphal/docker-htop.svg?branch=master)](https://travis-ci.org/terencewestphal/docker-htop)  
+[![Docker](https://github.com/ttimasdf/htop/actions/workflows/docker-publish.yml/badge.svg?branch=master)](https://github.com/ttimasdf/htop/actions/workflows/docker-publish.yml)
 
-# [![HTOP](https://raw.githubusercontent.com/terencewestphal/docker-htop/master/logo.png)](http://hisham.hm/htop/)
-  
-htop - an interactive process viewer for Unix
-  
-### Pull  
-  
+![HTOP](https://raw.githubusercontent.com/ttimasdf/docker-htop/master/logo.png)
+
+htop - an interactive process viewer for Unix.
+
+This image is simply built from [Alpine image](https://hub.docker.com/_/alpine) adding a simple `htop` package, built automatically once a week on Github Actions to ensure you have the latest build 😉.
+
+### Pull image from the command line
+
+```bash
+docker pull ghcr.io/ttimasdf/htop:nightly
 ```
-docker pull terencewestphal/htop
+
+There's no `latest` tag in this repo, so you have to add the tag manually.
+
+### Use as base image in Dockerfile  
+
+```dockerfile
+FROM ghcr.io/ttimasdf/htop:nightly
 ```
-  
-### Build  
-  
-Build the Dockerfile and tag the image:  
-  
-```
-docker build -t htop .
-```
-  
+
 ### Usage  
-   
-Run htop inside a container:  
-  
+
+Run htop inside a container:
+
+```bash
+docker run -it --rm --pid=host ghcr.io/ttimasdf/htop:nightly
 ```
-docker run -it --rm --pid=host htop
-```
-  
-Join another container’s pid namespace:  
-  
-```
-docker run -it --rm --pid=container:my-container htop
+
+Join another container’s pid namespace:
+
+```bash
+docker run -it --rm --pid=container:my-container ghcr.io/ttimasdf/htop:nightly
 ```
